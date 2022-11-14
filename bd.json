@@ -1,0 +1,97 @@
+{
+    "pet": {
+        "name": {
+            "type": "String",
+            "required": true
+        },
+        "race": {
+            "type": "String",
+            "required": true
+        },
+        "diseases": {
+            "type": "String",
+            "required": true
+        },
+
+        "sex": {
+            "type": "String",
+            "required": true
+        },
+
+        "age": {
+            "type": "Number",
+            "required": true
+        },
+
+        "weight": {
+            "type": "Number",
+            "required": true
+        }
+    },
+    "category": {
+        "name": {
+            "type": "String",
+            "required": true
+        }
+    },
+    "service": {
+        "name": {
+            "type": "String",
+            "required": true
+        },
+        "dateAttention": {
+            "type": "String",
+            "required": true
+        },
+        "dateExit": {
+            "type": "String",
+            "required": true
+        }
+    },
+    "status": {
+        "name": {
+            "type": "String",
+            "required": true,
+            "minLength": 1,
+            "maxLength": 100,
+            "enum": [
+                "active",
+                "inactive"
+            ]
+        }
+    },
+    "users": {
+        "name": {
+            "type": "String",
+            "required": true
+        },
+        "email": {
+            "type": "String",
+            "required": true
+        },
+        "password": {
+            "type": "String",
+            "required": true
+        },
+        "role": {
+            "type": "String",
+            "enum": [
+                "admin",
+                "user"
+            ],
+            "default": "user"
+        },
+        "cart": {
+            "type": "Schema.ObjectId",
+            "ref": "Cart"
+        }
+    },
+    "cart": {
+        "products": {
+            "type": [
+                "Schema.ObjectId"
+            ],
+            "ref": "Product"
+        }
+    }
+}
