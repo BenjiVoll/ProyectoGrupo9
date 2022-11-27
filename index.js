@@ -5,13 +5,23 @@ require('dotenv').config();
 
 const app = express();
 const petRoutes = require('./routes/petRoutes');
-const categoryRoutes = require('./routes/categoryRoutes')
+const specieRoutes = require('./routes/specieRoutes');
+const benefitRoutes= require('./routes/benefitRoutes')
+const userRoutes= require('./routes/userRoutes')
+const controlserviceRoutes= require('./routes/controlserviceRoutes');
+const controlservice = require('./models/controlservice');
 
 app.use(cors())
 app.use(express.json());
 app.options('*', cors());
 app.use('/api', petRoutes);
-app.use('/api', categoryRoutes);
+app.use('/api', specieRoutes);
+app.use('/api', benefitRoutes);
+app.use('/api', userRoutes);
+
+app.use('/api', controlserviceRoutes);
+
+
 
 
 
@@ -30,3 +40,6 @@ mongoose.connect(process.env.DB, (err) => {
     }
     return console.log('Conectado a la base de datos')
 });
+
+
+
